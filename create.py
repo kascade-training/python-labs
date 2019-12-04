@@ -8,13 +8,17 @@ db = mysql.connect(
 
 cursor = db.cursor() 
 
-new= (input("Creation [D]atabase, [T]able, (EXIT to go back) "))
-if new == "D":
+#crud=input("[c]reate, [r]ead, [u]pdate, [d]elete")
+
+#CREATE
+
+cru_cre= (input("Creation [D]atabase, [T]able, (EXIT to go back) "))
+if cru_cre == "D":
     nom_db= input("nom ? ")
     cursor.execute("DROP DATABASE IF EXISTS {}".format(nom_db))
     cursor.execute("CREATE DATABASE IF NOT EXISTS {}".format(nom_db))
     cursor.execute("USE {}".format(nom_db))
-if new == "T":
+if cru_cre == "T":
     nom_db=input("dans quelle database ? ")
     cursor.execute("CREATE DATABASE IF NOT EXISTS {}".format(nom_db))
     cursor.execute("USE {}".format(nom_db))
@@ -58,4 +62,16 @@ if new == "T":
         print("fonction pas encore implémentée, attendez 2 semaines")
 if new == "exit":
     break    
+#READ
+crud_r=input("")
+#UPDATE
+
+#DELETE
+crud_del = input("delete [T]able, [D]atabase ? ")
+if crud_del == "D":
+    nom_db=input("quelle database ? ")
+    cursor.execute("DROP DATABASE {}".format(nom_db))
+if crud_del == "T"
+    nom_tb=input("quelle table ? ")
+    cursor.execute("DROP TABLE {}".format(nom_db))
 
