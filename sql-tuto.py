@@ -27,9 +27,9 @@ def myCreate(cursor):
     # create database/table
 
     choice = input("Create [D]atabase, [T]able : ")
-    if choice == 'D':
+    if choice in 'Dd':
         req = ["CREATE DATABASE IF NOT EXISTS m2i_python_db;"]
-    elif choice == 'T':
+    elif choice in 'Tt':
         table = input("Table [Animal], [Race], [Espece] : ")
         req = [ "USE m2i_python_db;"]
         if table == "Animal":
@@ -81,9 +81,9 @@ def myRead(cursor):
 
     choice = input("Read [D]atabase, [T]able : ")
     req = [ "USE m2i_python_db;"]
-    if choice == 'D':
+    if choice in 'Dd':
         req.extend([ """SHOW TABLES;"""])
-    elif choice == 'T':
+    elif choice in 'Tt':
         table = input("Table [Animal], [Race], [Espece] : ")
         if myCheckTableExist(cursor, table):
             req.extend(["SELECT * FROM {};".format(table)])
@@ -153,13 +153,12 @@ def myDelete(cursor):
     # delete database/table
 
     choice = input("Delete [D]atabase, [T]able : ")
-    if choice == 'D':
+    if choice in 'Dd':
         req = ["DROP DATABASE IF EXISTS m2i_python_db;"]
-    elif choice == 'T':
+    elif choice in 'Tt':
+        table = input("Delete table [Animal], [Race], [Espece] : ")
         req = (["USE m2i_python_db;",
-                 """DROP TABLE IF EXISTS Animal;""",
-                """DROP TABLE IF EXISTS Race;""",
-                """DROP TABLE IF EXISTS Espece;"""])
+                "DROP TABLE IF EXISTS {};".format(table)])
     else:
         req = []
 
@@ -167,18 +166,20 @@ def myDelete(cursor):
 
 def myExecute(req, cursor):
     # execute SQL query
-    
+
     for i in req:
         print(i)
     justdoit = input("Execute request [Y]es [N]o ? ")
-    if justdoit == 'Y':
+    if justdoit in 'yY':
         result = []
         for i in req:
             cursor.execute(i)
-            #p = cursor.fetchall()
-           # print(p)
-            #result.extend(cursor.fetchall())
-        return "done"
+            try:  
+                #result.extend(cursor.fetchall())
+                print(cursor.fetchall())
+            except:
+                result = "Done"
+        return result
     else:
         return False
 
@@ -187,19 +188,17 @@ def main():
     db = myConnect()
     cursor = db.cursor()
     print("* Connection to mysql successful:", db) 
+
     choice = 'X'
-
-   # print(myCheckTableExist(cursor, "Animal"))
-
     while choice == 'X':
         choice = input("[C]reate, [R]ead, [Update], [D]elete : ")
-        if choice == 'C':
+        if choice in 'Cc':
             req = myCreate(cursor)
-        elif choice == 'R':
+        elif choice in 'Rr':
             req = myRead(cursor)
-        elif choice == 'U':
+        elif choice in 'Uu':
             req = myUpdate(cursor)
-        elif choice == 'D':
+        elif choice in 'Dd':
             req = myDelete(cursor)
         else:
             print("Invalid input.")
