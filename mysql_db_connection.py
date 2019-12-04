@@ -69,7 +69,7 @@ def main ():
         (3,'Tortue d''Hermann','Testudo hermanni','Bestiole avec une carapace très dure'),
         (4,'Perroquet amazone','Alipiopsitta xanthops','Joli oiseau parleur vert et jaune');""")
         
-db.commit()
+        db.commit()
 # créer une fonction insert dans laquelle on va appeler la base de donné "nombd" et remplir les tableaux existants : animal, race et espece
 if __name__ == '__main__': 
     main() 
