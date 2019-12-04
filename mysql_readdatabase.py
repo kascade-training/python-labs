@@ -19,7 +19,8 @@ def create_database(cursor):
 
 def read_database(cursor):
     cursor.execute("SHOW DATABASES")
-    return
+    databases = cursor.fetchall()
+    print(databases)
 
          
 choix = input("Que voulez-vous faire sur les DB ? créer ou voir ")
