@@ -88,4 +88,8 @@ if crud == "d":
         cursor.execute("DROP DATABASE {}".format(nom_db))
     if crud_del == "T":
         nom_tb=input("quelle table ? ")
+<<<<<<< HEAD
         cursor.execute("DROP TABLE {}".format(nom_tb))
+=======
+        cursor.execute("DROP TABLE {}".format(nom_tb))
+>>>>>>> d21f3800ca86c2cda70500902dcdaed703b126a4
