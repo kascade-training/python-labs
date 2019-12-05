@@ -11,7 +11,7 @@ class Parking:
         self.Nportal = Nportal
      
     def full(self):
-        if self.Capacity == self.PlaceOccup
+        if self.Capacity == self.PlaceOccup:
             return True
      
     def enter(self):
@@ -26,9 +26,9 @@ class Parking:
 class Portail:
     def __init__(self, numPortail,Parking):
         assert isinstance(numPortail, int)
-        assert isinstance(parking, Parking)
+        assert isinstance(Parking, Parking)
         
         self.numPortail = numPortail
-        self.parking = parking
+        self.parking = Parking
         
     
