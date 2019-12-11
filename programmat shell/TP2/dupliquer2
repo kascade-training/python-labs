@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo Nom du fichier à dupliquer?
+read nomfic
+
+echo Nom du dossier de destination?
+read nomrep
+
+echo Suffixe à ajouter?
+read suffixe
+
+cp $nomfic $nomrep/$(basename $nomfic)$suffixe
+chmod u=r $nomrep/$(basename $nomfic)$suffixe

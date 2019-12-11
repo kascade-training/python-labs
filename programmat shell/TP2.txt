@@ -1,0 +1,34 @@
+Q1
+   ls -l rep1  2>/dev/null || (mkdir rep1; cd rep1; >fic1; >fic2; > fic3; ls -l)
+   ls -l rep1  2>/dev/null || { mkdir rep1; >/rep1/fic1; >/rep1/fic2; >/rep1/fic3; ls -l;}
+   
+Q2
+   { cd; mkdir rep2; 2>/dev/null; >rep2/fic1; >rep2/fic2; >rep2/fic3; chmod u=r,g=,o= rep2/*;}
+
+Q3
+   cd TP2
+   mkdir save
+   >fic
+   copier fic save .save
+
+Q4
+   cd TP2
+   mkdir save
+   >fic
+   dupliquer
+
+Q6
+   ville=
+   echo ${ville:-Paris}
+   ville=Lyon
+   echo ${ville:-Paris}
+
+Q7
+   
+   >fic1
+   >FIC1
+   shopt -s nocaseglob
+   ls -l f?c1
+   shopt -u nocaseglob
+   ls -l f?c1
+  

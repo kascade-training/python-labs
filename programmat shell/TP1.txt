@@ -1,0 +1,31 @@
+Q1
+   ls -l -t
+   
+Q2
+   Oui
+   more /usr/share/doc/vim-common/copyright
+   
+Q3
+   ls -l /bin/ls*
+   
+Q4
+   touch fichier1
+   ls -l fichier1
+   chmod +t fichier1
+   ls -l fichier1
+   
+Q5
+   Créer le fichier prog1 avec un éditeur de texte
+   ls -l prog1
+   chmod u+x prog1
+   ls -l prog1
+   echo $PATH
+   PATH=$PATH:.
+   echo $PATH
+   prog1
+
+Q6
+   find /etc - name vimrc 2>/dev/null 1>found
+
+Q7
+   echo $LANG
